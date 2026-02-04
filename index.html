@@ -1,395 +1,101 @@
+<!-- Art Institute of Chicago API:
+12 artworks, fields include: Artwork ID (id), Artwork Title (title), Artist (artist_display), Date (date_display), Ref Number (main_reference_number)
+https://api.artic.edu/api/v1/artworks?fields=id,title,artist_display,date_display,main_reference_number
+
+API 1: "https://api.artic.edu/api/v1/artworks?fields=artist_display"
+API 2: "https://api.artic.edu/api/v1/artworks?fields=title" -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bands in Town</title>
-    <link rel="stylesheet" href=".//index.css"></link>
-    <script src="https://kit.fontawesome.com/da13e934b8.js" crossorigin="anonymous"></script>
-    <script src=".//index.js" defer></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="index.css">
+  <title>Art Institute of Chicago | Artists' Works</title>
 </head>
 
 <body>
-    <section id="landing">
-        <nav>
-            <div class="nav__container">
-                <img class="logo" src="./assets/BandsInTownLogo-brown.svg" alt="Bands In Town Logo - Color">
-                <ul class="nav__links">
-                <li><a href="#" class="nav__link">Home</a></li>
-                <li><a href="#" class="nav__link">Contact</a></li>
-                <li><a href="#" class="nav__link nav__link--primary">Bands In Town</a></li>
-                </ul>
-                <button class="btn__menu" onclick="openMenu()">
-                <i class="fas fa-bars"></i>
-                </button>
-                <div class="menu__backdrop">
-                <button class="btn__menu btn__menu--close" onclick="closeMenu()">
-                    <i class="fas fa-times"></i>
-                </button>
-                <ul class="menu__links">
-                    <li class="menu__list">
-                    <a href="#" class="menu__link" onclick="closeMenu()">Home</a>
-                    </li>
-                    <li class="menu__list">
-                    <a href="#features" class="menu__link" onclick="closeMenu()">Books</a>
-                    </li>
-                    <li class="menu__list">
-                    <a class="menu__link no-cursor" onclick="closeMenu()">Contacts</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-        </nav>
-        <header>
-            <div class="header__container">
-                <div class="header__description">
-                <h1>Access to artist info and artist events</h1>
-                <h2>Designed for <span class="purple">artists and enterprises representing artists</span></h2>
-                <a href="#features">
-                    <button class="btn">Browse bands</button>
-                </a>
-                </div>
-                <figure class="header__img--wrapper">
-                <img src="./assets/undraw_off-road_34hg.svg" alt="">
-                </figure>
-            </div>
-        </header>
-    </section>
 
-    <main>
-        <section id="highlights">
-            <div class="container">
-                <div class="row">
-                <h2 class="section__title">
-                    Why choose <span class="purple">Bands in Town</span>
-                </h2>
-                    <div class="highlight__wrapper">
-                        <div class="highlight">
-                        <div class="highlight__img">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h3 class="highlight__subtitle">
-                            Easy and Quick
-                        </h3>
-                        <p class="highlight__para">
-                            Get access to upcoming, past, or all artist events, or events within a date range.
-                        </p>
-                        </div>
-                        <div class="highlight">
-                        <div class="highlight__img">
-                            <i class="fa-solid fa-arrow-up-right-dots"></i>
-                        </div>
-                        <h3 class="highlight__subtitle">
-                            Thousands of Artists
-                        </h3>
-                        <p class="highlight__para">
-                            Bands in Town has artists from all genres.
-                        </p>
-                        </div>
-                        <div class="highlight">
-                        <div class="highlight__img">
-                            <i class="fa-solid fa-circle-info"></i>
-                        </div>
-                        <h3 class="highlight__subtitle">
-                            All the Info You Need
-                        </h3>
-                        <p class="highlight__para">
-                            Includes information about venues.
-                        </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="features">
-            <div class="container">
-                <div class="row">
-                    <h2 class="section__title">
-                        Featured <span class="purple">Artists</span>
-                    </h2>
-                    <div class="books">
-                        <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/crack the coding interview.png" alt="">
-                        </figure>
-                            <div class="book__title">
-                                Crack the Coding Interview
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                             <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/atomic habits.jpg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                Atomic Habits
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                             <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/david goggins.jpeg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                Can't Hurt Me
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                             <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/deep work.jpeg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                Deep Work
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                        
-
-        <section id="recent">
-            <div class="container">
-                <div class="row">
-                    <h2 class="section__title">
-                        Latest <span class="purple">Events</span>
-                    </h2>
-                    <div class="books">
-                        <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/book-1.jpeg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                The 10X Rule
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                             <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/book-2.jpeg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                Be Obsessed or Be Average
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                             <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/book-3.jpeg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                Rich Dad Poor Dad
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                             <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/book-4.jpeg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                Cashflow Quadrant
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                        <div class="books"></div>
-                            <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/book-5.jpeg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                The 48 Laws of Power
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                             <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/book-6.jpeg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                The 5 Second Rule
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                             <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/book-7.jpg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                Your Next Five Moves
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                             <div class="book">
-                            <figure class="book__img--wrapper">
-                            <img class="book__img" src=".//Assets Provided/book-8.jpeg" alt="">
-                        </figure>
-                            <div class="book__title">
-                                Mastery
-                                </div>
-                                    <div class="book__ratings">
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star"></i>
-                                        <i class="fa-solid fa-star-half-stroke"></i>
-                                    </div>
-                                <div class="book__price">
-                                    <span class="book__price--normal">$25.95</span> $15.99
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-        </section>
-
-        <section id="explore">
-      <div class="container">
-        <div class="row row__column">
-          <h2>Explore more <span class="purple">Events</span></h2>
-          <a href="#features">
-            <button class="btn">Browse events</button>
-          </a>
+<div id="app">
+<!-- Navigation / Header -->
+<header>
+    <nav>
+        <div class="logo">ARTIC</div>
+        <div class="nav__links">
+            <a href="#home" onclick="navigateTo('home')">Home</a>
+            <a href="#contact" onclick="scrollToContact">Contact</a>
         </div>
-      </div>
-    </section>
+    </nav>
+</header>
 
-  </main>
+<!-- Home Page Selection -->
+ <section id="home-page" class="page active">
+    <!-- Hero Section -->
+    <div class="hero">
+       <h1>DISCOVER<br>MASTERPIECES</h1>
+       <p>Explore the works of world-renowned artists.</p>
+       <button onclick="scrollToGallery()" class="btn-primary">View Artists</button> 
+    </div>
+
+    <!-- Gallery Section -->
+     <div id="gallery-section" class="container">
+        <div class="gallery-header">
+            <h2>Artists</h2>
+            <div class="sort-controls">
+                <label for="sort-select">Sort by:</label>
+                <select id="sort-select" onchange="handleSort()">
+                    <option value="default">Default</option>
+                    <option value="asc">A - Z</option>
+                    <option value="desc">Z - A</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="artist-grid" class="grid">
+            <!-- Artists here -->
+             <div class="loading">Loading artists...</div>
+        </div>
+     </div>
+
+     <!-- Contact Section -->
+      <div id="contact" class="container contact-section">
+        <h2>Contact Us</h2>
+        <form id="contact-form" onsubmit="handleContact(event)">
+            <div class="form-group">
+                <input type="text" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Message" rows="5" required></textarea>
+            </div>
+            <button typ="submit" class="btn-black">Send Message</button>
+        </form>
+      </div>
+ </section>
+
+ <!-- Artist Works Page Section -->
+  <section id="works-page" class="page">
+    <div class="container">
+        <button onclick="navigateTo('home')" class="btn-back">← Back to Artists</button>
+        <div class="artist-header">
+            <h1 id="selected-artist-name">Artist Name</h1>
+        </div>
+        <div id="works-grid" class="works-list">
+            <!-- Works -->
+        </div>
+    </div>
+  </section>
 
   <footer>
-    <div class="container">
-      <div class="row row__column">
-        <a href="#">
-          <figure class="footer__logo">
-            <img src=".//assets/BandsInTownLogo.svg" class="footer__logo--img" alt="">
-          </figure>
-        </a>
-        <div class="footer__list">
-          <a href="#" class="footer__link">Home</a>
-          <a class="footer__link no-cursor">About</a>
-          <a href="#features" class="footer__link">Bands</a>
-          <a class="footer__link no-cursor">Contact</a>
-        </div>
-        <div class="footer__copyright">Copyright &copy; 2026 Bands in Town</div>
-      </div>
-    </div>
+    <p>&copy; 2026 Tatum Rumsey. Data provided by Art Institute of Chicago.</p>
   </footer>
 
-    
+</div>
+<script src="index.js"></script>
 </body>
+
 </html>
