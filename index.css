@@ -92,12 +92,13 @@ nav {
     letter-spacing: 0.1em;
 }
 
-.nav__links {
+.nav__links a {
     margin-left: 30px;
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
+
 
 /* Pages */
 
@@ -253,7 +254,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    transition: background 0.2s;
+    transition: all 0.2s;
 }
 
 .work-item:hover {
