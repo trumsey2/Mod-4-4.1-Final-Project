@@ -40,7 +40,7 @@ async function fetchData() {
 function processArtists() {
     const rawArtists = allArtworks.map(work => work.artist_display).filter(name => name);
 
-    // Count artworks per artist (raw string matching)
+    // Count artworks per artist
     artistCounts = rawArtists.reduce((acc, name) => {
         acc[name] = (acc[name] || 0) + 1;
         return acc;
@@ -54,8 +54,15 @@ function processArtists() {
 function renderArtists() {
     const grid = document.getElementById('artist-grid');
     const sortValue = document.getElementById('sort-select').value;
+    const searchValue = document.getElementById('artist-search').value.toLowerCase();
+
+    // Filter Logic
+    let filteredArtists = artists.filter(artist =>
+        artist.toLowerCase().includes(searchValue)
+    );
     
-    let sortedArtists = [...artists];
+    // Sort Logic
+    let sortedArtists = [...filteredArtists];
     if (sortValue === 'asc') {
         sortedArtists.sort((a, b) => a.localeCompare(b));
     } else if (sortValue === 'desc') {
@@ -63,6 +70,11 @@ function renderArtists() {
     }
 
     grid.innerHTML = '';
+
+    if (sortedArtists.length === 0) {
+        grid.innerHTML = '<div class="no artists found matching your search.</div>';
+        return;
+    }
     
     sortedArtists.forEach(artist => {
         // Clean up name for display (take first line if multiline)
@@ -83,6 +95,11 @@ function renderArtists() {
 
 // Handle Sorting
 function handleSort() {
+    renderArtists();
+}
+
+// Handle Search
+function handleSearch() {
     renderArtists();
 }
 

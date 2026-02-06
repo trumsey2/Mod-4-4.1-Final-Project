@@ -43,13 +43,21 @@ API 2: "https://api.artic.edu/api/v1/artworks?fields=title" -->
      <div id="gallery-section" class="container">
         <div class="gallery-header">
             <h2>Artists</h2>
-            <div class="sort-controls">
-                <label for="sort-select">Sort by:</label>
-                <select id="sort-select" onchange="handleSort()">
-                    <option value="default">Default</option>
-                    <option value="asc">A - Z</option>
-                    <option value="desc">Z - A</option>
-                </select>
+
+            <div class="controls-wrapper">
+                <div class="search-control">
+                    <input type="text" id="artist-search" placeholder="Search artists..." oninput="handleSearch()">
+                </div>
+            
+                <div class="sort-controls">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select" onchange="handleSort()">
+                        <option value="default">Default</option>
+                        <option value="asc">A - Z</option>
+                        <option value="desc">Z - A</option>
+                    </select>
+                </div>
+                
             </div>
         </div>
 
